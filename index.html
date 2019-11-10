@@ -151,6 +151,212 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-DAO定义" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/08/DAO%E5%AE%9A%E4%B9%89/">DAO定义</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/08/DAO%E5%AE%9A%E4%B9%89/" class="archive-article-date">
+  	<time datetime="2019-11-08T03:03:13.740Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="DAO-编辑"><a href="#DAO-编辑" class="headerlink" title="DAO 编辑"></a>DAO 编辑</h2><p>DAO(Data Access Object) 数据访问对象是一个面向对象的数据库接口，它显露了 Microsoft Jet 数据库引擎（由 Microsoft Access 所使用），并允许 Visual Basic 开发者通过 ODBC 像直接连接到其他数据库一样，直接连接到 Access 表。DAO 最适用于单系统应用程序或小范围本地分布使用。</p>
+<p>中文名<br>    数据库访问对象<br>外文名<br>    Data Access Object </p>
+<p>简    称<br>    DAO<br>局限性<br>    适用于单系统应用程序 </p>
+<p>目录</p>
+<pre><code>1 访问接口
+2 访问对象
+3 写盘方式
+4 相关信息</code></pre><h2 id="访问接口"><a href="#访问接口" class="headerlink" title="访问接口"></a>访问接口</h2><h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><p>DAO(Data Access Object)是一个数据访问接口，数据访问：顾名思义就是与数据库打交道。夹在业务逻辑与数据库资源中间。<br>在核心J2EE模式中是这样介绍DAO模式的：为了建立一个健壮的J2EE应用，应该将所有对数据源的访问操作抽象封装在一个公共API中。用程序设计的语言来说，就是建立一个接口，接口中定义了此应用程序中将会用到的所有事务方法。在这个应用程序中，当需要和数据源进行交互的时候则使用这个接口，并且编写一个单独的类来实现这个接口在逻辑上对应这个特定的数据存储。<br>访问对象  </p>
+<p>编辑  </p>
+<p>DAO（数据访问对象）是一种应用程序编程接口（API），存在于微软的Visual Basic中，它允许程序员请求对微软的Access数据库的访问。DAO是微软的第一个面向对象的数据库接口。DAO对象封闭了Access的Jet函数。通过Jet函数，它还可以访问其他的结构化查询语言（SQL）数据库。</p>
+<p>  J2EE开发人员使用数据访问对象（DAO）设计模式把底层的数据访问逻辑和高层的业务逻辑分开.实现DAO模式能够更加专注于编写数据访问代码.</p>
+<p>  我们先来回顾一下DAO设计模式和数据访问对象.</p>
+<h2 id="DAO基础"><a href="#DAO基础" class="headerlink" title="DAO基础"></a>DAO基础</h2><p>  DAO模式是标准的J2EE设计模式之一.开发人员使用这个模式把底层的数据访问操作和上层的商务逻辑分开.一个典型的DAO实现有下列几个组件：</p>
+<ol>
+<li><p>一个DAO工厂类；</p>
+</li>
+<li><p>一个DAO接口；</p>
+</li>
+<li><p>一个实现DAO接口的具体类；</p>
+</li>
+<li><p>数据传递对象（有些时候叫做值对象）.<br>具体的DAO类包含了从特定的数据源访问数据的逻辑。在下面的这段中你将学到设计和实现数据访问对象的技术。</p>
+<h2 id="事务划分："><a href="#事务划分：" class="headerlink" title="事务划分："></a>事务划分：</h2><p>关于DAO要记住的一件重要事情是它们是事务性对象。每个被DAO执行的操作（对象创建，更新、或删除数据）都是和事务相关联的。同样的，事务划分（transaction demarcation）的概念是特别重要的。</p>
+<p>事务划分是在事务界定定义中的方式。J2EE规范为事务划分描述了两种模式：编程性事务（programmatic）和声明性事务（declarative）.下表是对这两种模式的拆分：</p>
+<p>声明性事务划分 编程性事务划分</p>
+<p>程序员使用EJB的部署描述符声明事务属性 程序员担负编写事务逻辑代码的责任。</p>
+<p>运行时环境（EJB容器）使用这些属性来自动的管理事务。应用程序通过一个API接口来控制事务。</p>
+<h2 id="写盘方式"><a href="#写盘方式" class="headerlink" title="写盘方式"></a>写盘方式</h2><h3 id="编辑-1"><a href="#编辑-1" class="headerlink" title="编辑"></a>编辑</h3><p>除去Data Access Object的意思，在光盘刻录方面DAO对应于Disk At Once（一次写盘方式），在使用刻录机刻录镜像文件时可以选择这种方式。</p>
+<p>一次写盘是单次的写入方式，引导区、数据磁道以及导出区都是一次性写入，一次写完之后光盘就关闭，即便此次写入没有写满整个刻录盘，也无法再写入其它数据。当引导区写入到光盘上时，并没有在该引导区标示出下一个可用的地址，因此光盘就被视为关闭，再也无法写入更多的数据。</p>
+<p>这种写入模式主要用于光盘的复制，一次完成整张光盘的刻录。其特点是能使复制出来的光盘与源盘毫无二致。DAO写入方式可以轻松完成对于音乐CD、混合或特殊类型CD-ROM等数据轨之间存在间隙的光盘的复制，且可以确保数据结构与间隙长度都完全相同。值得一提的是，由于DAO写入方式把整张光盘当作一个区段来处理，一些小的失误都有可能导致整张光盘彻底报废，所以它对数据传送的稳定性和驱动器的性能有较高的要求。</p>
+<h2 id="相关信息"><a href="#相关信息" class="headerlink" title="相关信息"></a>相关信息</h2><h3 id="编辑-2"><a href="#编辑-2" class="headerlink" title="编辑"></a>编辑</h3><h4 id="一、数据访问对象DAO的结构"><a href="#一、数据访问对象DAO的结构" class="headerlink" title="一、数据访问对象DAO的结构"></a>一、数据访问对象DAO的结构</h4><p>上一章我们知道了DAO是什么，它可以干什么，以及简单的了解了它是如何实现这一功能，这一章我们讲逐步学习DAO的结构。在将讲这一章之前，首先讲两个题外话：</p>
+<h4 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h4><p>大家对面向对象编程一定不陌生，但究竟什么是面向对象编程，很多人一下子也说不出个所以然来；在VB的DAO中又是如何体现面向对象的呢，恐怕即便是使用了一段VB的网友也很难说清。这也难怪，VB本身并不是个完全的面向对象的编程环境，它的很多如动态数组等就不是面向对象的，但在DAO中是完全的面向对象的。其实面向对象的最初思想就是将数据和操作封装在一起，形成对象，而在DAO中正是体现了这一点，它将数据的值作为属性，数据的查询作为方法，数据值的变化作为事件，完全封装在DAO对象中，希望诸位盟友在使用中注意，逐步领悟面向对象的编程方法。</p>
+<h4 id="数据库前端开发系统和后台系统"><a href="#数据库前端开发系统和后台系统" class="headerlink" title="数据库前端开发系统和后台系统"></a>数据库前端开发系统和后台系统</h4><p>经常由朋友说他会DELPHI，会PB，实际上用前端和后台的概念来看，他们都只是会一种前端开发工具而已，严格说起来并不能算会数据库的开发。人们往往只看到前台应用的功能而忽视了后台系统的应用，或者认为这两者根本就是一回事。前端后台概念用在单机上，就是VB与Access，用在网络中就是VB与SQLSever，只会VB或DELPHI是不能称为掌握数据库编程的，而且在编程中，要善于利用后台数据库提供功能，这样的程序运行起来更快，程序更精练。</p>
+<p>题外话讲完，现在切入正题。DAO的结构如图所示：</p>
+<p>以上是DAO整体结构图，下面将分章节逐步讲述每个对象的使用</p>
+<h2 id="二、数据访问对象DAO的功能"><a href="#二、数据访问对象DAO的功能" class="headerlink" title="二、数据访问对象DAO的功能"></a>二、数据访问对象DAO的功能</h2><ol>
+<li><p>DAO用来封装Data Source的..就比如,Connection conn = DAOFactory.createConnection()..<br>就可以把Driver. URL. username,passpword这一些放在DAO中<br>以后要更改数据库的类型.比如要把MYSQL换成Oracle的话..只需要更改DAOFactory里面的getConnection（）里面的Driver.URL.之类的..</p>
+</li>
+<li><p>DAO也是把对数据库的操作（比如最基本的CRUD操作）全部封装在里面..<br>比如说你要插入一个新的用户..那么.在DAO中我们只需要提供一个insertUser(User user）这一个方法就可以了..具体的操作是在DAO中实现的…</p>
+</li>
+</ol>
+<p>那么对于要调用DAO的时候.我们只要知道insertUser(User)是用来插入一个新的用户…而不需要知道是如何实现的..</p>
+<p>一般 DAO是与Abstract Factory模式一起来用的…</p>
+<p>Factory来建立数据库和定位具体的DAO（比如说是UserDao..CustomerDao..)..一般将getConnection设置为static..也可以把HibernateSessionFactory这一个公共类放在这一AbstractFactory类中去…</p>
+<p>public class DAOFactory {</p>
+<p>private static final SessionFactory sessionFactory;</p>
+<p>// 定义一个ThreadLocal .</p>
+<p>static Session currentSession()…..</p>
+<p>public UserDao getUserDAO() { return new UserDaoImpl(sesssion);}</p>
+<p>pulbic OtherDao getOtherDAO() { return new OtherDaoImpl(session);}</p>
+<p>……</p>
+<p>}</p>
+<p>public interface UserDao {</p>
+<p>public insertUser(FormBean)</p>
+<p>public updateUser(FormBean);</p>
+<p>}</p>
+<p>然后就实现DAO的接口： (Struts的FormBean…VO来的..)</p>
+<p>publicclassUserDaoImpl implements UserDao {</p>
+<p>privateSession session;</p>
+<p>public UserDaoImpl(Session session){</p>
+<p>this.session = session;</p>
+<p>}…</p>
+<p>public insertUser(FormBean) {</p>
+<p>..//..</p>
+<p>session.save(UserPO);</p>
+<p>..//..</p>
+<p>return FormBean;</p>
+<p>}</p>
+<p>public FormBean updateUser(FormBean) {</p>
+<p>..//..</p>
+<p>session.update(UserPO);</p>
+<p>..//..</p>
+<p>return FormBean;</p>
+<p>}</p>
+<p>}</p>
+<h4 id="最后定义你的PO"><a href="#最后定义你的PO" class="headerlink" title="最后定义你的PO:"></a>最后定义你的PO:</h4><p>publicclassUserPO {</p>
+<p>String firstname,lastname,password……….</p>
+<p>}</p>
+<p>Huhmmmm……….</p>
+<h2 id="三、实战应用——使用数据访问对象DAO"><a href="#三、实战应用——使用数据访问对象DAO" class="headerlink" title="三、实战应用——使用数据访问对象DAO"></a>三、实战应用——使用数据访问对象DAO</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h3><p>Visual C++提供了对DAO的封装，MFC DAO类封装了DAO（数据库访问对象）的大部分功能，从而Visual C++程序就可以使用Visual C++提供的MFC DAO类方便的访问Microsoft Jet 数据库，编制简洁、有Visaul C++特色的数据库应用程序。</p>
+<p>数据库访问对象（DAO）提供了一种通过程序代码创建和操纵数据库的机制。多个DAO对象构成一个体系结构，在这个结构里，各个DAO对象协同工作。DAO支持以下四个数据库选项：</p>
+<p>打开访问数据库（MDB文件）——MDB文件是一个自包含的数据库，它包括查询定义、安全信??须指定MDB文件的路径名。</p>
+<p>直接打开ODBC数据源——这里有一个很重要的限制。不能找开以Jet引擎作为驱动程序的ODBC数据源；只可以使用具有自己的ODBC驱动程序DLL的数据源。</p>
+<p>用Jet引擎找开ISAM型（索引顺序访问方法）数据源（包括dBase,FoxPro,Paradox,Btrieve,Excel或文本文件）——即使已经设置了ODBC数据源，要用Jet引擎来访问这些文件类型中的一种，也必须以ISAM型数据源的方式来找开文件，而不是以ODBC数据源的方式。</p>
+<p>给ACCESS数据库附加外部表——这实际上是用DAO访问ODBC数据源的首选方法。首先使用ACCESS把ODBC表添加到一个MDB文件上，然后依照第一选项中介绍的方法用DAO找开这个MDB文件就可以了。用户也可以用ACCESS把IASM文件附加到一个MDB文件上。</p>
+<h2 id="2-应用DAO编程"><a href="#2-应用DAO编程" class="headerlink" title="2 应用DAO编程"></a>2 应用DAO编程</h2><h3 id="2-1-打开数据库"><a href="#2-1-打开数据库" class="headerlink" title="2.1 打开数据库"></a>2.1 打开数据库</h3><p>CDaoWorkspace对象代表一个DAO Workspace对象，在MFC DAO体系结构中处于最高处，定义了一个用户的同数据库的会话，并包含打开的数据库，负责完成数据库的事务处理。我们可以使用隐含的workspace对象。</p>
+<p>CDaoDatabase对象代表了一个到数据库的连接，在MFC中，是通过CDaoDatabase封装的。</p>
+<p>在构造CDaoDatabase对象时，有如下两种方法：</p>
+<p>创建一个CDaoDatabase对象，并向其传递一个指向一个已经找开的CdaoWorkspace对象的指针。</p>
+<p>创建一个CDaoDatabase对象，而不明确地指定使用的workspace，此时，MFC将创建一个新的临时的CDaoWorkspace对象。</p>
+<h4 id="如下代码所示："><a href="#如下代码所示：" class="headerlink" title="如下代码所示："></a>如下代码所示：</h4><p>CDaoDatabasedb;</p>
+<p>db.Open（“test.mdb”，FALSE,FALSE,_T（“”）；</p>
+<p>其中参数一包括要打开的文件的全路径名。</p>
+<h3 id="2-2-查询记录"><a href="#2-2-查询记录" class="headerlink" title="2.2 查询记录"></a>2.2 查询记录</h3><p>一个DAO recordset对象，代表一个数据记录的集合，该集合是一个库表或者是一个查询的运行结果中的全部记录。CDaoRecorset对象有三种类型：表、动态集、快照。</p>
+<p>通常情况下，我们在应用程序中可以使用CDaoRecordset的导出类，这一般是通过ClassWizard或AppWizard来生成的。但我们也可以直接使用CDaoRecordset类生成的对象。此时，我们可以动态地绑定recordset对象的数据成员。</p>
+<h4 id="如下代码所示：-1"><a href="#如下代码所示：-1" class="headerlink" title="如下代码所示："></a>如下代码所示：</h4><p>COleVariant var;</p>
+<p>long id;</p>
+<p>CString str;</p>
+<p>CDaoRecordset m_Set(&amp;db);</p>
+<p>m_Set.Open（“查询的SQL语句”）；</p>
+<p>while(!m_Set.IsEOF())</p>
+<p>{</p>
+<p>/*</p>
+<p>处理</p>
+<p>m_Set.GetFieldValue（“ID”，var);</p>
+<p>id=V_I4(var);</p>
+<p>m_Set.GetFieldValue（“Name”，var);</p>
+<p>str=var.pbVal;</p>
+<p>*/</p>
+<p>m_Set.MoveNext();</p>
+<p>}</p>
+<p>m_Set.Close();</p>
+<h3 id="2-3-添加记录"><a href="#2-3-添加记录" class="headerlink" title="2.3 添加记录"></a>2.3 添加记录</h3><h3 id="添加记录用AddNew函数，此时用SetFieldValue来进行赋值。"><a href="#添加记录用AddNew函数，此时用SetFieldValue来进行赋值。" class="headerlink" title="添加记录用AddNew函数，此时用SetFieldValue来进行赋值。"></a>添加记录用AddNew函数，此时用SetFieldValue来进行赋值。</h3><h4 id="如下代码所示：-2"><a href="#如下代码所示：-2" class="headerlink" title="如下代码所示："></a>如下代码所示：</h4><p>m_pDaoRecordset-&gt;AddNew ();</p>
+<p>sprintf(strValue,”%s”,&gt;m_UserName );</p>
+<p>m_pDaoRecordset-&gt;SetFieldValue (“UserName”,strValue);</p>
+<p>sprintf(strValue,”%d”,m_PointId );</p>
+<p>m_pDaoRecordset-&gt;SetFieldValue (“PointId”,strValue);</p>
+<p>dataSrc.SetDateTime (m_UpdateTime .GetYear ),m_UpdateTime .GetMonth ),m_UpdateTime .GetDay (),</p>
+<p>m_UpdateTime .GetHour (),m_UpdateTime .GetMinute (),m_UpdateTime .GetSecond ());</p>
+<p>valValue=dataSrc;</p>
+<p>m_pDaoRecordset-&gt;SetFieldValue (“UpdateTime”,valValue);</p>
+<p>sprintf(strValue,”%f”,m_pRecordset-&gt;m_OldValue );</p>
+<p>m_pDaoRecordset-&gt;SetFieldValue (“OldValue”,strValue);</p>
+<p>sprintf(strValue,”%f”,m_pRecordset-&gt;m_NewValue );</p>
+<p>m_pDaoRecordset-&gt;SetFieldValue (“NewValue”,strValue);</p>
+<p>m_pDaoRecordset-&gt;Update ();</p>
+<p>此时，要注意，日期时间型数据要用SetDataTime函数来赋值，这里面要用到COleVariant类型数据，具体用法可以参考有关帮助。</p>
+<h3 id="2-4-修改记录"><a href="#2-4-修改记录" class="headerlink" title="2.4 修改记录"></a>2.4 修改记录</h3><h3 id="修改记录用Edit（）函数，把记录定位到要修改的位置，调用Edit函数，修改完成后，调用Update函数。"><a href="#修改记录用Edit（）函数，把记录定位到要修改的位置，调用Edit函数，修改完成后，调用Update函数。" class="headerlink" title="修改记录用Edit（）函数，把记录定位到要修改的位置，调用Edit函数，修改完成后，调用Update函数。"></a>修改记录用Edit（）函数，把记录定位到要修改的位置，调用Edit函数，修改完成后，调用Update函数。</h3><h3 id="如下代码所示：-3"><a href="#如下代码所示：-3" class="headerlink" title="如下代码所示："></a>如下代码所示：</h3><p>m_Set.Edit();</p>
+<p>m_Set.SetFieldValue（“列名”，”字符串”）；</p>
+<p>m_Set.Update();</p>
+<h3 id="2-5-删除记录"><a href="#2-5-删除记录" class="headerlink" title="2.5 删除记录"></a>2.5 删除记录</h3><h3 id="删除记录用Delete（）函数，使用后不需调用Update（）函数。"><a href="#删除记录用Delete（）函数，使用后不需调用Update（）函数。" class="headerlink" title="删除记录用Delete（）函数，使用后不需调用Update（）函数。"></a>删除记录用Delete（）函数，使用后不需调用Update（）函数。</h3><h3 id="2-6-统计记录"><a href="#2-6-统计记录" class="headerlink" title="2.6 统计记录"></a>2.6 统计记录</h3><p>可以使用如下代码来统计记录数：</p>
+<p>COleVariant varValue;</p>
+<p>CDaoRecordset m_Set(&amp;db);</p>
+<p>m_Set.Open(dbOpenDynaset，”SQL语句”）；</p>
+<p>varValue=m_Set.GetFieldValue(0);</p>
+<p>m_lMaxCount=V_I4(&amp;varValue);</p>
+<p>m_Set.Close();</p>
+<p>如果是统计一张表中总记录，可以使用CDaoTableDef对象，如下代码所示：</p>
+<p>CDaoTableDefm_Set(&amp;gUseDB);</p>
+<p>Count=m_Set.GetRecordCount();</p>
+<p>m_Set.Close();</p>
+<p>不能用CDaoRecordset对象的GetRecordCount（）来取得记录数。</p>
+<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3 总结"></a>3 总结</h3><p>使用DAO技术可以使我们方便的访问Microsoft Jet引擎数据库，由于Microsoft Jet不支持多线程，因此，必须限制调用到应用程序主线程的所有DAO。</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/08/DAO%E5%AE%9A%E4%B9%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
