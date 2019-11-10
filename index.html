@@ -151,6 +151,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JSP导入MyEclipse中的项目错误" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/10/JSP%E5%AF%BC%E5%85%A5MyEclipse%E4%B8%AD%E7%9A%84%E9%A1%B9%E7%9B%AE%E9%94%99%E8%AF%AF/">JSP导入MyEclipse中的项目错误</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/10/JSP%E5%AF%BC%E5%85%A5MyEclipse%E4%B8%AD%E7%9A%84%E9%A1%B9%E7%9B%AE%E9%94%99%E8%AF%AF/" class="archive-article-date">
+  	<time datetime="2019-11-10T09:05:14.230Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Eclipse导入MyEclipse中的项目"><a href="#Eclipse导入MyEclipse中的项目" class="headerlink" title="Eclipse导入MyEclipse中的项目"></a>Eclipse导入MyEclipse中的项目</h1><h3 id="—把Webroot改为WebContent"><a href="#—把Webroot改为WebContent" class="headerlink" title="—把Webroot改为WebContent"></a>—把Webroot改为WebContent</h3><p>1、进入项目目录，找到.project文件，打开。 </p>
+<p>2、找到…代码段。 </p>
+<p>3、在第2步的代码段中加入如下标签内容并保存： </p>
+<p>org.eclipse.wst.common.project.facet.core.nature<br>org.eclipse.wst.common.modulecore.ModuleCoreNature<br>org.eclipse.jem.workbench.JavaEMFNature </p>
+<p>4、项目目录下的.classpath文件，把所有Webroot字符串改为WebContent，保存。 </p>
+<p>5、把目录下webroot的文件夹改名为WebContent。 </p>
+<p>6、在eclipse中Java Resources:src目录的Libraries里添加web服务器需要的包，选择BiuldPath—–&gt;configure Build Path——&gt;当前窗面下选择选择Add Library—–&gt;server Runtime——&gt;选择需要的web服务器 </p>
+<p>7、在eclipse的项目上点右键，刷新项目。 </p>
+<p>8、在项目上点右键，进入属性（properties） </p>
+<p>9、在左侧列表项目中点击选择“Project Facets”，在右侧选择“Dynamic Web Module”和”Java”，点击保存即可。 </p>
+<p>这时应该可以在eclipse下正常启动项目了 </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/10/JSP%E5%AF%BC%E5%85%A5MyEclipse%E4%B8%AD%E7%9A%84%E9%A1%B9%E7%9B%AE%E9%94%99%E8%AF%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-DAO定义" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
