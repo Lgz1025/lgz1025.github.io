@@ -6,13 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hexo</title>
+  <title>SQL增删改查常见语句 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="SQL增删改查一、增：有2种方法1.使用insert插入单行数据： 语法：insert [into] &amp;lt;表名&amp;gt; [列名] values &amp;lt;列值&amp;gt;　　 例：insert into Strdents (姓名,性别,出生日期) values (‘王伟华’,’男’,’1983&#x2F;6&#x2F;15’) 　　 注意：如果省略表名，将依次插入所有列 2.使用insert,select语句将现有表中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL增删改查常见语句">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;11&#x2F;SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A5&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="SQL增删改查一、增：有2种方法1.使用insert插入单行数据： 语法：insert [into] &amp;lt;表名&amp;gt; [列名] values &amp;lt;列值&amp;gt;　　 例：insert into Strdents (姓名,性别,出生日期) values (‘王伟华’,’男’,’1983&#x2F;6&#x2F;15’) 　　 注意：如果省略表名，将依次插入所有列 2.使用insert,select语句将现有表中">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-11T10:01:18.000Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -149,130 +152,228 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-SQL增删改查常见语句" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      SQL增删改查常见语句
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/11/SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A5/" class="archive-article-date">
+
+        
+        <a href="/2019/11/11/SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A5/" class="archive-article-date">
   	<time datetime="2019-11-11T09:59:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/11/SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A5/">SQL增删改查常见语句</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SQL增删改查"><a href="#SQL增删改查" class="headerlink" title="SQL增删改查"></a>SQL增删改查</h1><h2 id="一、增：有2种方法"><a href="#一、增：有2种方法" class="headerlink" title="一、增：有2种方法"></a>一、增：有2种方法</h2><p>1.使用insert插入单行数据：</p>
+<pre><code>语法：insert [into] &lt;表名&gt; [列名] values &lt;列值&gt;</code></pre><p>　　 例：insert into Strdents (姓名,性别,出生日期) values (‘王伟华’,’男’,’1983/6/15’)</p>
+<p>　　 注意：如果省略表名，将依次插入所有列</p>
+<p>2.使用insert,select语句将现有表中的 数据添加到已有的新表中</p>
+<pre><code>语法：insert into &lt;已有的新表&gt; &lt;列名&gt; select &lt;原表列名&gt; from &lt;原表名&gt;</code></pre><p>　　例：insert into addressList (‘姓名’,’地址’,’电子邮件’)select name,address,email          </p>
+<pre><code>          from  Strdents 
 
-        <div class="article-info info-on-right">
-          
-          
+注意：查询得到的数据个数、顺序、数据类型等，必须与插入的项保持一致</code></pre><h2 id="二、删：有２中方法"><a href="#二、删：有２中方法" class="headerlink" title="二、删：有２中方法"></a>二、删：有２中方法</h2><p>1.使用delete删除数据某些数据</p>
+<pre><code>语法：delete from &lt;表名&gt; [where &lt;删除条件&gt;]　　  
 
+例：delete from a where name=&apos;王伟华&apos;（删除表a中列值为王伟华的行）　 
+
+    注意：删除整行不是删除单个字段，所以在delete后面不能出现字段名</code></pre><p>2.使用truncate table 删除整个表的数据</p>
+<pre><code>语法：truncate table &lt;表名&gt;</code></pre><p>　   例：truncate table addressList</p>
+<p>　  注意：删除表的所有行，但表的结构、列、约束、索引等不会被删除；不能</p>
+<pre><code>用于有外建约束引用的表</code></pre><h2 id="三、改-使用update更新修改数据"><a href="#三、改-使用update更新修改数据" class="headerlink" title="三、改　　使用update更新修改数据"></a>三、改　　使用update更新修改数据</h2><pre><code>语法：update &lt;表名&gt; set &lt;列名=更新值&gt; [where &lt;更新条件&gt;]</code></pre><p>　　 例：update addressList set 年龄=18 where 姓名=’王伟华’</p>
+<p>　　 注意：set后面可以紧随多个数据列的更新值（非数字要引号）；where子句是可选的（非数字要引号），用来限制条件，如果不选则整个表的所有行都被更新</p>
+<h2 id="四、查"><a href="#四、查" class="headerlink" title="四、查"></a>四、查</h2><p>1.普通查询</p>
+<pre><code>语法：select &lt;列名&gt; from &lt;表名&gt; [where &lt;查询条件表达试&gt;] [order by &lt;排序的列  
+
+      名&gt;[asc或desc]]</code></pre><p>　　　1).查询所有数据行和列</p>
+<p>　　　　例：select * from a</p>
+<p>　　　　说明：查询a表中所有行和</p>
+<p>　　　2).查询部分行列–条件查询</p>
+<p>　　　　例：select i,j,k   from  a   where f=5</p>
+<p>　　　　说明：查询表a中f=5的所有行，并显示i,j,k３列</p>
+<p>　　　3).在查询中使用ＡＳ更改列名</p>
+<p>　　　　例：select name as 姓名　from a where  gender=’男’</p>
+<p>　　　　说明：查询a表中性别为男的所有行，显示name列，并将name列改名为（姓名）显示</p>
+<p>　　　4).查询空行</p>
+<p>　　　　例：select name from a where email is null</p>
+<p>　　　　说明：查询表a中email为空的所有行，并显示name列；SQL语句中用is null或者is not null</p>
+<pre><code>来判断是否为空行</code></pre><p>　　　5).在查询中使用常量</p>
+<p>　　　　例：select name ‘北京’ as 地址 from　a</p>
+<p>　　　　说明：查询表a，显示name列，并添加地址列，其列值都为’北京’</p>
+<p>　　　6).查询返回限制行数(关键字：top )</p>
+<p>　　　　例１：select top 6 name from a</p>
+<p>　　　　说明：查询表a，显示列name的前６行，top为关键字（oracle 中没有top关键字</p>
+<pre><code>用rownum替代）
+
+             select   *   from   a where   rownum&lt;6  </code></pre><p>　　　7).查询排序（关键字：order by , asc , desc）</p>
+<p>　　　　例：select name</p>
+<p>　　　　　　from a</p>
+<p>　　　　　　where grade&gt;=60</p>
+<p>　　　　　　order by desc</p>
+<p>　　　　说明：查询表中成绩大于等于60的所有行，并按降序显示name列；默认为ＡＳＣ升序</p>
+<p>２.模糊查询</p>
+<p>　　　1).使用like进行模糊查询</p>
+<p>　　　　注意：like运算副只用语字符串，</p>
+<p>　　　　例：select * from a where name like ‘赵%’</p>
+<p>　　　　说明：查询显示表a中，name字段第一个字为赵的记录</p>
+<p>　　　2).使用between在某个范围内进行查询</p>
+<p>　　　　例：select * from a where age between 18 and 20</p>
+<p>　　　　说明：查询显示表a中年龄在18到20之间的记录</p>
+<p>　　  3).使用in在列举值内进行查询(in后是多个的数据)</p>
+<pre><code>例：select name from a where address in (&apos;北京&apos;,&apos;上海&apos;,&apos;唐山&apos;)</code></pre><p>　　　　说明：查询表a中address值为北京或者上海或者唐山的记录，显示name字段</p>
+<p>３.分组查询</p>
+<p>　　　1).使用group by进行分组查询</p>
+<p>　　　　例：select studentID as 学员编号, AVG(score) as 平均成绩  (注释:这里的score是列名)</p>
+<p>　　　　　　from score (注释:这里的score是表名)</p>
+<p>　　　　　　group by studentID</p>
+<pre><code>2).使用having子句进行分组筛选</code></pre><p>　　　　例：select studentID as 学员编号, AVG　　　　</p>
+<p>from score</p>
+<p>　　　　　　group by studentID</p>
+<p>　　　　　　having count(score)&gt;1</p>
+<p>　　　　说明：接上面例子，显示分组后count(score)&gt;1的行，由于where只能在没有分组</p>
+<pre><code>时使用，分组后只能使用having来限制条件，</code></pre><p>４.多表联接查询</p>
+<p>　　　1).内联接</p>
+<p>　　　　①在where子句中指定联接条件</p>
+<p>　　　　例：select a.name,b.mark</p>
+<p>　　　　　　from a,b</p>
+<p>　　　　　　where a.name=b.name</p>
+<p>　　　　说明：查询表a和表b中name字段相等的记录，并显示表a中的name字段和表b中的mark字段</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/11/SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A5/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/10/JSP%E5%AF%BC%E5%85%A5MyEclipse%E4%B8%AD%E7%9A%84%E9%A1%B9%E7%9B%AE%E9%94%99%E8%AF%AF/" class="archive-article-date">
-  	<time datetime="2019-11-10T09:05:14.230Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/10/JSP%E5%AF%BC%E5%85%A5MyEclipse%E4%B8%AD%E7%9A%84%E9%A1%B9%E7%9B%AE%E9%94%99%E8%AF%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSP导入MyEclipse中的项目错误</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/10/JSP%E5%AF%BC%E5%85%A5MyEclipse%E4%B8%AD%E7%9A%84%E9%A1%B9%E7%9B%AE%E9%94%99%E8%AF%AF/">JSP导入MyEclipse中的项目错误</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/08/DAO%E5%AE%9A%E4%B9%89/" class="archive-article-date">
-  	<time datetime="2019-11-08T03:03:13.740Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/08/DAO%E5%AE%9A%E4%B9%89/">DAO定义</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/07/hello-world/" class="archive-article-date">
-  	<time datetime="2019-11-07T06:18:10.090Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/07/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -295,8 +396,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
