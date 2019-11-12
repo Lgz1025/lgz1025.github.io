@@ -151,20 +151,104 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-SQL增删改查常见语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MYSQL主键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/11/SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A5/">SQL增删改查常见语句</a>
+      <a class="article-title" href="/2019/11/12/MYSQL%E4%B8%BB%E9%94%AE/">MYSQL主键</a>
     </h1>
   
 
         
-        <a href="/2019/11/11/SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A5/" class="archive-article-date">
-  	<time datetime="2019-11-11T09:59:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
+        <a href="/2019/11/12/MYSQL%E4%B8%BB%E9%94%AE/" class="archive-article-date">
+  	<time datetime="2019-11-12T13:38:47.160Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MYSQL主键（PRIMARY-KEY）"><a href="#MYSQL主键（PRIMARY-KEY）" class="headerlink" title="MYSQL主键（PRIMARY KEY）"></a>MYSQL主键（PRIMARY KEY）</h1><p>“主键（PRIMARY KEY）”的完整称呼是“主键约束”。MySQL 主键约束是一个列或者列的组合，其值能唯一地标识表中的每一行。这样的一列或多列称为表的主键，通过它可以强制表的实体完整性。</p>
+<hr>
+<h2 id="选取设置主键约束的字段"><a href="#选取设置主键约束的字段" class="headerlink" title="选取设置主键约束的字段"></a>选取设置主键约束的字段</h2><p>主键约束即在表中定义一个主键来唯一确定表中每一行数据的标识符。主键可以是表中的某一列或者多列的组合，其中由多列组合的主键称为复合主键。主键应该遵守下面的规则：</p>
+<ul>
+<li>每个表只能定义一个主键。</li>
+<li>主键值必须唯一标识表中的每一行，且不能为 NULL，即表中不可能存在两行数据有相同的主键值。这是唯一性原则。</li>
+<li>一个列名只能在复合主键列表中出现一次。</li>
+<li>复合主键不能包含不必要的多余列。当把复合主键的某一列删除后，如果剩下的列构成的主键仍然满足唯一性原则，那么这个复合主键是不正确的。这是最小化原则。</li>
+</ul>
+<h2 id="在创建表时设置主键约束"><a href="#在创建表时设置主键约束" class="headerlink" title="在创建表时设置主键约束"></a>在创建表时设置主键约束</h2><p>在 CREATE TABLE 语句中，主键是通过 PRIMARY KEY 关键字来指定的。</p>
+<p>在定义列的同时指定主键，语法规则如下：</p>
+<blockquote>
+<p>&lt;字段名&gt; &lt;数据类型&gt; PRIMARY KEY [默认值]</p>
+</blockquote>
+<h2 id="在创建表时设置复合主键"><a href="#在创建表时设置复合主键" class="headerlink" title="在创建表时设置复合主键"></a>在创建表时设置复合主键</h2><p>主键由多个字段联合组成，语法规则如下：</p>
+<blockquote>
+<p>PRIMARY KEY [字段1，字段2，…,字段n]</p>
+</blockquote>
+<h2 id="在修改表时添加主键约束"><a href="#在修改表时添加主键约束" class="headerlink" title="在修改表时添加主键约束"></a>在修改表时添加主键约束</h2><p>在修改数据表时添加主键约束的语法规则为：</p>
+<blockquote>
+<p>ALTER TABLE &lt;数据表名&gt; ADD PRIMARY KEY(&lt;列名&gt;);</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/12/MYSQL%E4%B8%BB%E9%94%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SQL增删改查常见语句1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/11/SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A51/">SQL增删改查常见语句1</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/11/SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A51/" class="archive-article-date">
+  	<time datetime="2019-11-11T13:45:11.170Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
 </a>
         
       </header>
@@ -175,22 +259,18 @@
 <pre><code>语法：insert [into] &lt;表名&gt; [列名] values &lt;列值&gt;</code></pre><p>　　 例：insert into Strdents (姓名,性别,出生日期) values (‘王伟华’,’男’,’1983/6/15’)</p>
 <p>　　 注意：如果省略表名，将依次插入所有列</p>
 <p>2.使用insert,select语句将现有表中的 数据添加到已有的新表中</p>
-<pre><code>语法：insert into &lt;已有的新表&gt; &lt;列名&gt; select &lt;原表列名&gt; from &lt;原表名&gt;</code></pre><p>　　例：insert into addressList (‘姓名’,’地址’,’电子邮件’)select name,address,email          </p>
-<pre><code>          from  Strdents 
-
-注意：查询得到的数据个数、顺序、数据类型等，必须与插入的项保持一致</code></pre><h2 id="二、删：有２中方法"><a href="#二、删：有２中方法" class="headerlink" title="二、删：有２中方法"></a>二、删：有２中方法</h2><p>1.使用delete删除数据某些数据</p>
-<pre><code>语法：delete from &lt;表名&gt; [where &lt;删除条件&gt;]　　  
-
-例：delete from a where name=&apos;王伟华&apos;（删除表a中列值为王伟华的行）　 
-
-    注意：删除整行不是删除单个字段，所以在delete后面不能出现字段名</code></pre><p>2.使用truncate table 删除整个表的数据</p>
+<pre><code>语法：insert into &lt;已有的新表&gt; &lt;列名&gt; select &lt;原表列名&gt; from &lt;原表名&gt;</code></pre><p>　　例：insert into addressList (‘姓名’,’地址’,’电子邮件’)select name,address,email  from  Strdents </p>
+<pre><code>注意：查询得到的数据个数、顺序、数据类型等，必须与插入的项保持一致</code></pre><h2 id="二、删：有２中方法"><a href="#二、删：有２中方法" class="headerlink" title="二、删：有２中方法"></a>二、删：有２中方法</h2><p>1.使用delete删除数据某些数据</p>
+<pre><code>语法：delete from &lt;表名&gt; [where &lt;删除条件&gt;]　　  </code></pre><p>例：delete from a where name=’王伟华’（删除表a中列值为王伟华的行）　 </p>
+<p>注意：删除整行不是删除单个字段，所以在delete后面不能出现字段名</p>
+<p>2.使用truncate table 删除整个表的数据</p>
 <pre><code>语法：truncate table &lt;表名&gt;</code></pre><p>　   例：truncate table addressList</p>
 <p>　  注意：删除表的所有行，但表的结构、列、约束、索引等不会被删除；不能用于有外建约束引用的表</p>
 <h2 id="三、改-使用update更新修改数据"><a href="#三、改-使用update更新修改数据" class="headerlink" title="三、改　　使用update更新修改数据"></a>三、改　　使用update更新修改数据</h2><pre><code>语法：update &lt;表名&gt; set &lt;列名=更新值&gt; [where &lt;更新条件&gt;]</code></pre><p>　　 例：update addressList set 年龄=18 where 姓名=’王伟华’</p>
 <p>　　 注意：set后面可以紧随多个数据列的更新值（非数字要引号）；where子句是可选的（非数字要引号），用来限制条件，如果不选则整个表的所有行都被更新</p>
 <h2 id="四、查"><a href="#四、查" class="headerlink" title="四、查"></a>四、查</h2><p>1.普通查询</p>
 <pre><code>语法：select &lt;列名&gt; from &lt;表名&gt; [where &lt;查询条件表达试&gt;] [order by &lt;排序的列名&gt;[asc或desc]]</code></pre><p>　　　1).查询所有数据行和列</p>
-<p>　　　　例：select * from a</p>
+<p>　　   例：select * from a</p>
 <p>　　　　说明：查询a表中所有行和</p>
 <p>　　　2).查询部分行列–条件查询</p>
 <p>　　　　例：select i,j,k   from  a   where f=5</p>
@@ -231,18 +311,21 @@
 <p>　　　　　　from score (注释:这里的score是表名)</p>
 <p>　　　　　　group by studentID</p>
 <p> 2).使用having子句进行分组筛选</p>
-<p>　　　　例：select studentID as 学员编号, AVG　　　　</p>
-<p>from score</p>
-<p>　　　　　　group by studentID</p>
-<p>　　　　　　having count(score)&gt;1</p>
-<p>　　　　说明：接上面例子，显示分组后count(score)&gt;1的行，由于where只能在没有分组时使用，分组后只能使用having来限制条件，</p>
+<blockquote>
+<p>　　　　例：select studentID as 学员编号, AVG　from score<br>　group by studentID having count(score)&gt;1</p>
+</blockquote>
+<blockquote>
+<p>说明：接上面例子，显示分组后count(score)&gt;1的行，由于where只能在没有分组时使用，分组后只能使用having来限制条件，</p>
+</blockquote>
 <p>４.多表联接查询</p>
 <p>　　　1).内联接</p>
 <p>　　　　①在where子句中指定联接条件</p>
-<p>　　　　例：select a.name,b.mark</p>
-<p>　　　　　　from a,b</p>
-<p>　　　　　　where a.name=b.name</p>
-<p>　　　　说明：查询表a和表b中name字段相等的记录，并显示表a中的name字段和表b中的mark字段</p>
+<blockquote>
+<p>　　　　例：select a.name,b.mark<br>from a,b<br>where a.name=b.name</p>
+</blockquote>
+<blockquote>
+<p>说明：查询表a和表b中name字段相等的记录，并显示表a中的name字段和表b中的mark字段</p>
+</blockquote>
 
       
 
@@ -255,7 +338,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/11/SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A5/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/11/SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A51/">展开全文 >></a>
         </p>
       
 
