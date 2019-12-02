@@ -151,27 +151,28 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-练习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JSP登录判定逻辑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/20/%E7%BB%83%E4%B9%A0/">练习</a>
+      <a class="article-title" href="/2019/11/26/JSP%E7%99%BB%E5%BD%95%E5%88%A4%E5%AE%9A%E9%80%BB%E8%BE%91/">JSP登录判定逻辑</a>
     </h1>
   
 
         
-        <a href="/2019/11/20/%E7%BB%83%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2019-11-20T01:54:36.800Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-20</time>
+        <a href="/2019/11/26/JSP%E7%99%BB%E5%BD%95%E5%88%A4%E5%AE%9A%E9%80%BB%E8%BE%91/" class="archive-article-date">
+  	<time datetime="2019-11-26T13:50:42.920Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="11-20笔记"><a href="#11-20笔记" class="headerlink" title="11.20笔记"></a>11.20笔记</h1>
+        <h1 id="JSP登录逻辑判定"><a href="#JSP登录逻辑判定" class="headerlink" title="JSP登录逻辑判定"></a>JSP登录逻辑判定</h1><h2 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h2><p>```<br>    public void doPost(HttpServletRequest request, HttpServletResponse response)<br>            throws ServletException, IOException {<br>        System.out.println(“——loginAction——“);<br>        request.setCharacterEncoding(“UTF-8”);<br>        response.setCharacterEncoding(“UTF-8”);<br>        response.setContentType(“text/html; charset=UTF-8”);<br>        String username=request.getParameter(“username”);//从页面中获取<br>        String password=request.getParameter(“password”);<br>        System.out.println(“获取login.jsp页面中的username “+ username);<br>        System.out.println(“获取login.jsp页面中的password “+ password);<br>        System.out.println(“登陆验证中…”);<br>        //连接并查询数据库<br>        String sql = “select * from user”;<br>        try {<br>            //获取数据查询数据<br>            ResultSet rs;<br>            String sqlusername = rs.getString(“username”);<br>            String sqlpassword = rs.getString(“password”);<br>            String sqlname = rs.getString(“name”);<br>            boolean flag = false;<br>            //对比数据，判定登录<br>            while(rs.next()) {<br>                if(sqlusername.equals(username) &amp;&amp; sqlpassword.equals(password)) {<br>                    //放入用户信息到Session后，跳转<br>                    HttpSession session = request.getSession();<br>                    session.setAttribute(“username”, username);<br>                    session.setAttribute(“password”, sqlpassword);<br>                    session.setAttribute(“name”, sqlname);<br>                    response.sendRedirect(“sucess.jsp”);<br>                    flag= true;<br>                    break;<br>                }<br>            }<br>            //登录失败<br>            if(flag==false) {<br>                //跳转回登录页面<br>                response.sendRedirect(“login.jsp”);<br>            }<br>        } catch (SQLException e) {<br>            // TODO 自动生成的 catch 块<br>            e.printStackTrace();<br>        }<br>    }</p>
+
       
 
       
@@ -183,7 +184,95 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/20/%E7%BB%83%E4%B9%A0/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/26/JSP%E7%99%BB%E5%BD%95%E5%88%A4%E5%AE%9A%E9%80%BB%E8%BE%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JSP登录流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/26/JSP%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/">JSP登录流程</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/26/JSP%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2019-11-26T13:46:01.820Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JSP登录"><a href="#JSP登录" class="headerlink" title="JSP登录"></a>JSP登录</h1><h2 id="1-表单提交数据到Servlet的方式"><a href="#1-表单提交数据到Servlet的方式" class="headerlink" title="1.表单提交数据到Servlet的方式"></a>1.表单提交数据到Servlet的方式</h2><hr>
+<p>整体流程：登录页面提交form表单(get或post方式到action指定的位置)的数据到一个Servlet，在其内进行判定是否登录。</p>
+<blockquote>
+<p>(1)Servlet中的doPost()方法：</p>
+</blockquote>
+<ul>
+<li>A.用Request.getParameter(“[input标签的name属性名]”)方法获取登录页面提交过来的表单数据。</li>
+<li>B.通过sql的JDBC的Jar包导入，进行数据库连接(连接代码见以往的连接代码)，用sql(类似于select * from user where id =’’, pwd=’’;)查询语句。</li>
+<li>C.比对判定以上两项的数据，页面跳转(“转发”和”重定向”两种方式取其一)。</li>
+</ul>
+<blockquote>
+<p>(2)跳转到的页面：登录成功页面(在Session中保存用户信息)/不跳转</p>
+</blockquote>
+<h2 id="2-表单提交数据到JSP的方式"><a href="#2-表单提交数据到JSP的方式" class="headerlink" title="2.表单提交数据到JSP的方式"></a>2.表单提交数据到JSP的方式</h2><hr>
+<p>整体流程：登录页面提交form表单(get或post方式到action指定的位置)的数据到一个JSP，在其内进行判定是否登录。</p>
+<blockquote>
+<p>(1)JSP中的&lt;% %&gt;脚本内容：</p>
+</blockquote>
+<ul>
+<li>A.用Request.getParameter(“[input标签的name属性名]”)方法获取登录页面提交过来的表单数据。</li>
+<li>B.通过sql的JDBC的Jar包导入，进行数据库连接(连接代码见以往的连接代码)，用sql(类似于select * from user where id =’’, pwd=’’;)查询语句。</li>
+<li>C.比对判定以上两项的数据，页面跳转(“转发”和”重定向”两种方式取其一)。</li>
+</ul>
+<blockquote>
+<p>(2)跳转到的页面：登录成功页面(在Session中保存用户信息)/重定向到登录JSP页面，为地址栏添加一个属性(response.sendRedirect(“index.jsp?info=”登录失败”))</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/26/JSP%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/">展开全文 >></a>
         </p>
       
 
@@ -233,7 +322,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="DQL、DML、DDL、DCL的概念与区别"><a href="#DQL、DML、DDL、DCL的概念与区别" class="headerlink" title="DQL、DML、DDL、DCL的概念与区别"></a>DQL、DML、DDL、DCL的概念与区别</h1><h2 id="SQL-Structure-Query-Language-语言是数据库的核心语言。"><a href="#SQL-Structure-Query-Language-语言是数据库的核心语言。" class="headerlink" title="SQL(Structure Query Language)语言是数据库的核心语言。"></a>SQL(Structure Query Language)语言是数据库的核心语言。</h2><p>SQL的发展是从1974年开始的，其发展过程如下：<br>1974年—–由Boyce和Chamberlin提出，当时称SEQUEL。<br>1976年—–IBM公司的Sanjase研究所在研制RDBMS SYSTEM R<br>时改为SQL。<br>1979年—–ORACLE公司发表第一个基于SQL的商业化RDBMS产品。<br>1982年—–IBM公司出版第一个RDBMS语言SQL/DS。<br>1985年—–IBM公司出版第一个RDBMS语言DB2。<br>1986年—–美国国家标准化组织ANSI宣布SQL作为数据库工业标准。<br>SQL是一个标准的数据库语言，是面向集合的描述性非过程化语言。<br>它功能强，效率高，简单易学易维护（迄今为止，我还没见过比它还好<br>学的语言）。然而SQL语言由于以上优点，同时也出现了这样一个问题：<br>它是非过程性语言，即大多数语句都是独立执行的，与上下文无关，而<br>绝大部分应用都是一个完整的过程，显然用SQL完全实现这些功能是很困<br>难的。所以大多数数据库公司为了解决此问题，作了如下两方面的工作：<br>(1)扩充SQL，在SQL中引入过程性结构；(2)把SQL嵌入到高级语言中，<br>以便一起完成一个完整的应用。</p>
+        <h1 id="DQL、DML、DDL、DCL的概念与区别"><a href="#DQL、DML、DDL、DCL的概念与区别" class="headerlink" title="DQL、DML、DDL、DCL的概念与区别"></a>DQL、DML、DDL、DCL的概念与区别</h1><h2 id="SQL-Structure-Query-Language-语言是数据库的核心语言。"><a href="#SQL-Structure-Query-Language-语言是数据库的核心语言。" class="headerlink" title="SQL(Structure Query Language)语言是数据库的核心语言。"></a>SQL(Structure Query Language)语言是数据库的核心语言。</h2><hr>
+<p>SQL的发展是从1974年开始的，其发展过程如下：<br>1974年—–由Boyce和Chamberlin提出，当时称SEQUEL。<br>1976年—–IBM公司的Sanjase研究所在研制RDBMS SYSTEM R<br>时改为SQL。<br>1979年—–ORACLE公司发表第一个基于SQL的商业化RDBMS产品。<br>1982年—–IBM公司出版第一个RDBMS语言SQL/DS。<br>1985年—–IBM公司出版第一个RDBMS语言DB2。<br>1986年—–美国国家标准化组织ANSI宣布SQL作为数据库工业标准。<br>SQL是一个标准的数据库语言，是面向集合的描述性非过程化语言。<br>它功能强，效率高，简单易学易维护（迄今为止，我还没见过比它还好<br>学的语言）。然而SQL语言由于以上优点，同时也出现了这样一个问题：<br>它是非过程性语言，即大多数语句都是独立执行的，与上下文无关，而<br>绝大部分应用都是一个完整的过程，显然用SQL完全实现这些功能是很困<br>难的。所以大多数数据库公司为了解决此问题，作了如下两方面的工作：<br>(1)扩充SQL，在SQL中引入过程性结构；(2)把SQL嵌入到高级语言中，<br>以便一起完成一个完整的应用。</p>
 <h3 id="二-SQL语言的分类"><a href="#二-SQL语言的分类" class="headerlink" title="二. SQL语言的分类"></a>二. SQL语言的分类</h3><p>SQL语言共分为四大类：数据查询语言DQL，数据操纵语言DML，数据定义语言DDL，数据控制语言DCL。</p>
 <ol>
 <li>数据查询语言DQL<br>数据查询语言DQL基本结构是由SELECT子句，FROM子句，WHERE<br>子句组成的查询块：<br>SELECT &lt;字段名表&gt;<br>FROM &lt;表或视图名&gt;<br>WHERE &lt;查询条件&gt;</li>
